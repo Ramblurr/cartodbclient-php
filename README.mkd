@@ -19,8 +19,16 @@ Then is pretty simple
     <?php
     require_once 'cartodb.class.php';
 
+    $config = array();
+
+    $config['key'] = 'key';
+    $config['secret'] = 'secret';
+    $config['email'] = 'mail@example.com';
+    $config['password'] = 'password';
+    $config['subdomain'] = 'subdomain';
+
     # Create the client using the API key and Secret.
-    $cartodb =  new CartoDBClient('my_cartodb_key','my_cartodb_secret');
+    $cartodb =  new CartoDBClient($config);
     
     # Check if the key and secret work fine and you are authorized
     if(!$cartodb->authorized) {

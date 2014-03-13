@@ -1,4 +1,4 @@
-<?php
+<?php namespace CartoDB;
 // vim: foldmethod=marker
 
 /* Generic exception class

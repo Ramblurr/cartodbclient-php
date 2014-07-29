@@ -53,7 +53,7 @@ class CartoDBClient {
       }
       $this->authorized = true;
     }
-    catch (Exception $e) {
+    catch (\Exception $e) {
       $this->authorized = false;
     }
   }
@@ -105,7 +105,7 @@ class CartoDBClient {
     $response = $this->request('sql', 'POST', array('params' => $params));
 
     if ($response['info']['http_code'] != 200) {
-      throw new Exception('There was a problem with your request: ' . var_export($response['return'], true));
+      throw new \Exception('There was a problem with your request: ' . var_export($response['return'], true));
     }
     return $response;
   }
@@ -158,7 +158,7 @@ class CartoDBClient {
   }
 
   /**
-   * Searches for a table in all visualizations and if finds one who is a table visualization/canonical visualization, 
+   * Searches for a table in all visualizations and if finds one who is a table visualization/canonical visualization,
    * deletes it (this will delete the associated table).
    */
   public function dropTableVisualization($table_name) {
@@ -191,7 +191,7 @@ class CartoDBClient {
   }
 
   /**
-   * Returns all available tables, by getting a list of visualizations and then grabbing those tables 
+   * Returns all available tables, by getting a list of visualizations and then grabbing those tables
    * whose visualization is of type=table ('table visualization' or 'canonical visualization')
    */
   public function getTableVisualizations() {
@@ -286,7 +286,7 @@ class CartoDBClient {
     curl_close($ch);
 
     if ($info['http_code'] != 200) {
-      throw new Exception('Authorization failed for this key and secret.');
+      throw new \Exception('Authorization failed for this key and secret.');
     }
 
 

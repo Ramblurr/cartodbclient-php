@@ -100,6 +100,12 @@ class CartoDBClient {
     return $response;
   }
 
+  public function esc_sql($str) {
+      return strtr($str, array(
+          "'"  => "''"
+      ));
+  }
+
   public function runSql($sql) {
     $params = array('q' => $sql);
     $response = $this->request('sql', 'POST', array('params' => $params));
